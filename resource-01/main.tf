@@ -1,5 +1,5 @@
 resource "aws_instance" "web" {
-  ami           = data.aws_ami.example.id
+  ami           = "ami-03265a0778a880afb"
   instance_type = "t3.micro"
 
   tags = {
@@ -7,8 +7,4 @@ resource "aws_instance" "web" {
   }
 }
 
-data "aws_ami" "example" {
-  owners = ["973714476881"]
-  most_recent = true
-  name_regex = "Centos-8-DevOps-Practice"
-}
+
