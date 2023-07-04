@@ -112,9 +112,8 @@ resource "aws_route_table_association" "database" {
   route_table_id = aws_route_table.private_route_table.id
 }
 #create elastic ip
-resource "aws_eip" "nat" {
-  domain = "vpc"
-}
+resource "aws_eip" "nat" {}
+
 
 resource "aws_nat_gateway" "gw" {
   allocation_id = aws_eip.nat.id
