@@ -52,4 +52,68 @@ resource "aws_route_table_association" "public" {
   subnet_id      = aws_subnet.public-subnet.id
   route_table_id = aws_route_table.public_route_table.id
 }
+resource "aws_subnet" "private-subnet" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = "10.0.11.0/24"
+  tags = {
+    Name = "timing-1-private- subnet"
+    Terraform= "true"
+    Environment= "Dev"
+  }
+
+
+}
+
+resource "aws_route_table" "private_route_table" {
+  vpc_id = aws_vpc.main.id
+
+
+
+  tags = {
+    Name = "timing-1-private-routetable"
+    Terraform= "true"
+    Environment= "Dev"
+  }
+
+}
+
+resource "aws_route_table_association" "private" {
+  subnet_id      = aws_subnet.private-subnet.id
+  route_table_id = aws_route_table.private_route_table.id
+}
+
+resource "aws_subnet" "database-subnet" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = "10.0.21.0/24"
+  tags = {
+    Name = "timing-1-database- subnet"
+    Terraform= "true"
+    Environment= "Dev"
+  }
+
+
+}
+
+resource "aws_route_table" "database_route_table" {
+  vpc_id = aws_vpc.main.id
+
+
+
+  tags = {
+    Name = "timing-1-database-routetable"
+    Terraform= "true"
+    Environment= "Dev"
+  }
+
+}
+
+resource "aws_route_table_association" "database" {
+  subnet_id      = aws_subnet.database-subnet.id
+  route_table_id = aws_route_table.private_route_table.id
+}
+
+
+
+
+
 
