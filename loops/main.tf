@@ -4,7 +4,7 @@ resource "aws_vpc" "main" {
   enable_dns_support = true
   enable_dns_hostnames = true
   tags = {
-    Name = "timing-1"
+    Name = "var.project_name"
     Terraform= "true"
     Environment= "Dev"
   }
