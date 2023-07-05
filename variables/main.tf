@@ -35,7 +35,9 @@ resource "aws_instance" "web-server" {
   count = 3
   ami           = "ami-04823729c75214919"
   instance_type = "t2.micro"
-  tags = var.tags
+  tags = {
+    Name= var.instance_names[count.index]
+  }
 
 }
 
