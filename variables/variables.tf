@@ -37,5 +37,5 @@ variable "instance_names" {
 }
 variable "isprod" {
   type = bool
-  default = true
+  default = false
 }
