@@ -40,7 +40,7 @@ resource "aws_instance" "web-server" {
   }
 
 }
-resource "aws_instance" "web-server" {
+resource "aws_instance" "web-1" {
   ami           = "ami-04823729c75214919"
   instance_type = var.isprod ? "t3.large" : "t2.micro"
 }
